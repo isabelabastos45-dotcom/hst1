@@ -90,6 +90,9 @@ export async function onRequestPost({ request, env }) {
   try {
     const resultado = await env.AI.run(MODEL, {
       messages: mensagens,
+      // Desativa o modo de raciocínio prolongado para priorizar respostas rápidas.
+      // O modelo GLM-4.7-Flash aceita chat_template_kwargs.
+      chat_template_kwargs: { enable_thinking: false },
       max_tokens: mode === "chat" ? 700 : 1_500,
       temperature: 0.25,
     });
@@ -102,7 +105,11 @@ export async function onRequestPost({ request, env }) {
     return Response.json({ answer });
   } catch (erro) {
     const detalhe = String(erro?.message || erro || "");
-    console.error("Erro no Workers AI:", detalhe.slice(0, 500));
+    console.error("Erro no Workers AI:", {
+      model: MODEL,
+      name: String(erro?.name || ""),
+      message: detalhe.slice(0, 1_000),
+    });
 
     if (/429|quota|neuron|daily limit|rate limit/i.test(detalhe)) {
       return jsonError(

@@ -33,11 +33,20 @@ export default function EpiAssist({ onNavigate }) {
   }, []);
 
   async function consultar(modoSolicitado, texto, historico = []) {
-    const respostaHttp = await fetch(`${API_BASE}/api/assist`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ mode: modoSolicitado, message: texto, history: historico }),
-    });
+    let respostaHttp;
+    try {
+      respostaHttp = await fetch(`${API_BASE}/api/assist`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ mode: modoSolicitado, message: texto, history: historico }),
+        signal: AbortSignal.timeout(65000),
+      });
+    } catch (erro) {
+      if (erro?.name === "TimeoutError" || erro?.name === "AbortError") {
+        throw new Error("A IA demorou mais de 65 segundos para responder. Verifique a conexão com o Workers AI e tente novamente.");
+      }
+      throw new Error("Não foi possível conectar ao serviço de IA. Confira se o servidor Cloudflare está em execução.");
+    }
     let dados;
     try { dados = await respostaHttp.json(); }
     catch { throw new Error("Não foi possível interpretar a resposta do servidor."); }
