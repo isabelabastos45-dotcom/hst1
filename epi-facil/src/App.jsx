@@ -1,3 +1,5 @@
+import EpiAssist from "./components/EpiAssist.jsx";
+import { Bot } from "lucide-react";
 import React from "react";
 
 import { useMemo, useState } from "react";
@@ -16,6 +18,8 @@ const navItems = [
   { id: "profissoes", label: "Por profissão", icon: BriefcaseBusiness },
   { id: "quiz", label: "Quiz", icon: Brain },
   { id: "normas", label: "Normas e segurança", icon: Scale }
+,
+  { id: "assistente-ia", label: "Assistente IA", icon: Bot },
 ];
 
 function Header({ page, setPage, mobileOpen, setMobileOpen }) {
@@ -274,6 +278,7 @@ export default function App() {
 
   let content;
   switch (page) {
+    case "assistente-ia": content = <EpiAssist onNavigate={navigate} />; break;
     case "catalogo": content = <CatalogPage setSelectedEpi={setSelectedEpi} setPage={navigate} />; break;
     case "detalhe": content = <DetailPage epi={selectedEpi} setPage={navigate} />; break;
     case "tutoriais": content = <TutorialsPage setSelectedEpi={setSelectedEpi} setPage={navigate} />; break;

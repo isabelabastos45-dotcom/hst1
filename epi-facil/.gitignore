@@ -1,0 +1,8 @@
+
+# EPI Assist — arquivos privados e gerados
+.env
+.env.local
+.env.*.local
+node_modules/
+dist/
+.wrangler/

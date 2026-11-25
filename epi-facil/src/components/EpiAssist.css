@@ -1,0 +1,56 @@
+/* Classes isoladas: não substituem o CSS criado pela primeira pessoa. */
+.epi-ai-page { max-width: 1120px; padding: 60px 24px 76px; margin: 0 auto; color: #1d3341; }
+.epi-ai-heading { margin: 0 0 28px; }
+.epi-ai-kicker { display: inline-flex; gap: 8px; align-items: center; color: #287e97; font-weight: 800; font-size: 11px; letter-spacing: 1.2px; }
+.epi-ai-heading h1 { font-size: clamp(36px, 5vw, 54px); color: #173347; line-height: 1.12; margin: 14px 0; font-weight: 800; }
+.epi-ai-heading h1 span { color: #287f98; }
+.epi-ai-heading p { color: #607784; line-height: 1.7; max-width: 740px; margin: 0; font-size: 14px; }
+.epi-ai-panel { border: 1px solid #dfe8ec; background: white; border-radius: 18px; overflow: hidden; box-shadow: 0 16px 40px #1433440b; }
+.epi-ai-panel-header { padding: 20px 24px; display: flex; gap: 13px; align-items: center; background: #173448; color: white; }
+.epi-ai-bot { background: #2e596a; color: #f1cc63; width: 46px; height: 46px; display: grid; place-items: center; border-radius: 12px; flex-shrink: 0; }
+.epi-ai-panel-title { flex: 1; min-width: 0; }
+.epi-ai-panel-title strong { display: block; font-size: 15px; }
+.epi-ai-panel-title small { display: block; margin-top: 4px; color: #cadce5; font-size: 11px; }
+.epi-ai-status { font-size: 11px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; padding: 7px 10px; border-radius: 30px; background: #31576a; color: #e5f4f9; white-space: nowrap; }
+.epi-ai-status.epi-ai-pronto { background: #245846; color: #bcf5d5; }
+.epi-ai-status.epi-ai-sem-chave, .epi-ai-status.epi-ai-offline { background: #775228; color: #fff1cb; }
+.epi-ai-tabs { display: grid; grid-template-columns: 1fr 1fr; background: #f0f5f6; padding: 7px; gap: 6px; }
+.epi-ai-tabs button { display: flex; align-items: center; justify-content: center; gap: 9px; padding: 15px 10px; border: 0; border-radius: 10px; background: transparent; color: #617783; font-size: 13px; font-weight: 800; }
+.epi-ai-tabs button.active { background: white; color: #173448; box-shadow: 0 3px 10px #1734480d; }
+.epi-ai-content { padding: 28px; }
+.epi-ai-content h2 { font-size: 22px; margin: 0 0 10px; color: #173448; }
+.epi-ai-actions { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 18px; }
+.epi-ai-clear { display: inline-flex; align-items: center; gap: 7px; border: 1px solid #dce5e9; border-radius: 9px; background: #fff; color: #486a7b; padding: 9px 11px; font-size: 12px; }
+.epi-ai-intro { text-align: center; padding: 26px 15px; background: #f6f9fa; border-radius: 13px; }
+.epi-ai-bigicon { font-size: 41px; margin-bottom: 10px; }
+.epi-ai-intro strong { display: block; color: #173448; font-size: 17px; }
+.epi-ai-intro p, .epi-ai-lead { color: #6a7b86; font-size: 13px; line-height: 1.7; }
+.epi-ai-suggestions { margin: 17px auto 0; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.epi-ai-suggestions button { color: #327b92; border: 1px solid #cfe0e6; background: white; padding: 10px 12px; border-radius: 9px; font-size: 11px; }
+.epi-ai-history { display: grid; gap: 14px; max-height: 480px; overflow-y: auto; padding: 12px; background: #f7fafb; border-radius: 13px; }
+.epi-ai-message { display: flex; }
+.epi-ai-message.from-user { justify-content: flex-end; }
+.epi-ai-message.from-bot { justify-content: flex-start; }
+.epi-ai-bubble { max-width: 88%; border-radius: 13px; padding: 13px 15px; background: white; font-size: 13px; color: #334b59; line-height: 1.7; white-space: pre-wrap; overflow-wrap: anywhere; border: 1px solid #e5edf0; }
+.epi-ai-message.from-user .epi-ai-bubble { background: #e4f0f3; border-color: #d2e5eb; }
+.epi-ai-chat-form, .epi-ai-risk-form { display: grid; gap: 10px; margin-top: 20px; }
+.epi-ai-chat-form label, .epi-ai-risk-form label { color: #274757; font-weight: 700; font-size: 12px; }
+.epi-ai-risk-form label b { color: #b64d36; }
+.epi-ai-chat-form textarea, .epi-ai-risk-form textarea { width: 100%; display: block; background: #fbfdfd; border: 1px solid #cfdfe5; border-radius: 10px; color: #173448; padding: 13px 14px; font: inherit; font-size: 13px; resize: vertical; line-height: 1.6; }
+.epi-ai-chat-form textarea:focus, .epi-ai-risk-form textarea:focus { border-color: #338ca5; outline: 2px solid #d5eaf0; }
+.epi-ai-submit { display: inline-flex; gap: 9px; align-items: center; justify-content: center; background: #173448; color: white; border: 0; border-radius: 10px; padding: 13px 16px; font-size: 13px; font-weight: 800; justify-self: end; }
+.epi-ai-submit:disabled { opacity: .5; cursor: not-allowed; }
+.epi-ai-thinking { color: #367a91; font-size: 12px; display: flex; align-items: center; gap: 9px; margin-top: 14px; }
+.epi-ai-spin { animation: epi-ai-rotate 1s linear infinite; }
+@keyframes epi-ai-rotate { to { transform: rotate(360deg); } }
+.epi-ai-error { background: #fff3ef; color: #994332; border: 1px solid #f3d4ca; border-radius: 9px; padding: 12px 14px; font-size: 12px; line-height: 1.6; }
+.epi-ai-report { margin-top: 22px; padding: 23px; border: 1px solid #c9e2de; background: #f4fbf9; border-radius: 13px; }
+.epi-ai-report h3 { color: #185644; display: flex; gap: 10px; align-items: center; font-size: 17px; margin: 0 0 15px; }
+.epi-ai-report > div { white-space: pre-wrap; overflow-wrap: anywhere; color: #2f5052; font-size: 13px; line-height: 1.85; }
+.epi-ai-report > p { font-size: 11px; line-height: 1.65; color: #6b7474; padding-top: 15px; border-top: 1px solid #dbeae5; }
+.epi-ai-disclaimer { background: #fff8e8; padding: 16px 24px; display: flex; gap: 11px; align-items: flex-start; color: #7d6427; }
+.epi-ai-disclaimer svg { flex-shrink: 0; margin-top: 2px; }
+.epi-ai-disclaimer p { font-size: 11px; line-height: 1.7; margin: 0; }
+.epi-ai-shortcuts { background: #f8fafb; display: flex; gap: 10px; flex-wrap: wrap; padding: 17px 24px; }
+.epi-ai-shortcuts button { display: inline-flex; align-items: center; gap: 8px; border: 1px solid #d5e3e7; background: white; color: #275b74; padding: 10px 13px; border-radius: 9px; font-size: 11px; font-weight: 800; }
+@media (max-width: 650px) { .epi-ai-page { padding: 35px 16px 50px; } .epi-ai-panel-header { padding: 15px; flex-wrap: wrap; } .epi-ai-status { margin-left: 58px; } .epi-ai-content { padding: 19px; } .epi-ai-tabs button { font-size: 11px; } .epi-ai-actions { flex-wrap: wrap; } .epi-ai-bubble { max-width: 100%; } }
